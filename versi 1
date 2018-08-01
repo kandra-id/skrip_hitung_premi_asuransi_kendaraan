@@ -1,0 +1,43 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1 id="demo"></h1>
+<h1 id="demo2"></h1>
+<script>
+var tsi = 750000000 // harga kendaraan
+var rate = 1.2/100; // rate asuransi berdasarkan aturan OJK
+var period = 4; // periode asuransi
+var beaAdmin = 25000; 
+var premiMurni = tsi * rate * period
+var beaMaterai = function checkBeaMaterai(){
+if (premiMurni < 250000){
+return 6000
+} else if (premiMurni > 250000){
+return 12000
+} else {
+return 9000
+}
+}; 
+function totalPremi() {
+return tsi * rate * period + beaAdmin + beaMaterai();
+}
+
+document.getElementById("demo").innerHTML = totalPremi();
+</script>
+<script>
+var num = totalPremi();
+var numToString = totalPremi().toString(),
+sisa = numToString.length % 3,
+rupiah = numToString.substr(0, sisa),
+ribuan = numToString.substr(sisa).match(/\d{3}/g);
+if (ribuan){
+separator = sisa ? ',' : '';
+rupiah += separator + ribuan.join(',');
+}
+
+document.getElementById("demo2").innerHTML = rupiah;
+</script>
+</body>
+</html>
