@@ -1,0 +1,2 @@
+# skrip_hitung_premi_asuransi_kendaraan
+Belajar javascript dengan membuat program menghitung asuransi kendaraan
